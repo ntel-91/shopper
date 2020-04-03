@@ -1,0 +1,19 @@
+<h2>
+    <%= link_to "Categories", root_path %> /
+    <%= @category.title %> /
+    Products
+</h2>
+
+<ol>
+    <% @products.each do |p| %>
+        <li>
+            <%= p.title %> (<%= number_to_currency p.price %>)
+
+            <ul>
+                <% p.variants.each do |v| %>
+                    <li> <%= v.title %> (<%= number_to_currency v.price %>) </li>
+                <% end %>
+            </ul>
+        </li>
+    <% end %>
+</ol>

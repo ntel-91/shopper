@@ -3,8 +3,10 @@
 <ol>
     <% @categories.each do |c| %>
         <li>
-            <%= c.title %>
-            (<%= c.products_count %>)
+            <%= link_to category_products_path(c) do %>
+                <%= c.title %>
+                (<%= c.products_count %>)
+            <% end %>
         </li>
     <% end %>
 </ol>
