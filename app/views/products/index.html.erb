@@ -9,6 +9,11 @@
         <li>
             <%= p.title %> (<%= number_to_currency p.price %>)
 
+            <%= form_tag order_items_path do %>
+                <%= hidden_field_tag :product_id, p.id %>
+                <%= number_field_tag :quantity, 1 %>
+                <%= submit_tag "Add to Cart" %>
+            <% end %>
             <ul>
                 <% p.variants.each do |v| %>
                     <li> <%= v.title %> (<%= number_to_currency v.price %>) </li>
