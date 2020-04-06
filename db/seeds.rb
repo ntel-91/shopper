@@ -6,6 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+ProductCategory.all.delete_all
+ProductVariant.all.delete_all
+OrderItem.all.delete_all
+Product.all.delete_all
+Category.all.delete_all
+Order.all.delete_all
+
+
+
 PRODUCTS_COUNT = 100
 
 MAX_CATEGORIES = 3
