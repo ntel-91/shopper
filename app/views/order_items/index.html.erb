@@ -16,7 +16,7 @@
                 <td><%= number_to_currency item.price %></td>
                 <td><%= item.quantity %></td>
                 <td>
-                    <%= form_tag item, method: :delete do |f| %>
+                    <%= form_for item, method: :delete do |f| %>
                         <%= f.submit "Remove" %>
                     <% end %>
                 </td>

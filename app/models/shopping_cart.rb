@@ -10,10 +10,14 @@ class ShoppingCart
         end
     end
 
+    def items_count
+        order.items.sum(:quantity)
+    end
+
     def add_item(product_id:, quantity: 1)
         product = Product.find(product_id)
-
-        order_item = order.items.find_or_create_by(
+        
+        order_item = order.items.find_or_initialize_by(
             product_id: product_id
         )
 
@@ -21,5 +25,9 @@ class ShoppingCart
         order_item.quantity = quantity
 
         order_item.save
+    end
+
+    def remove_item(id:)
+        order.items.destroy(id)
     end
 end
